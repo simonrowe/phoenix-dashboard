@@ -1,0 +1,14 @@
+---
+applications:
+- name: phoenix-collector
+  memory: 2G
+  path: ./target/data-collector-0.0.1-SNAPSHOT.jar
+  instances: 1
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    FOUNDATION_ID: FoundationOne
+  services:
+    - capi
+    - uaa-client
+  health-check-type: process
+  no-route: true

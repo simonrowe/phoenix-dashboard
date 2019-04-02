@@ -15,3 +15,14 @@ uaac token client get "$UAA_ADMIN_CLIENT_ID" -s "$UAA_ADMIN_CLIENT_SECRET"
 uaac client add uaa-client --authorities cloud_controller.admin_read_only --scope cloud_controller.admin_read_only --authorized_grant_types client_credentials,password -s uaa-client-secret
 
 ```
+
+The collector microservice depends on 2 user provided services:
+* uaa-client
+* capi
+
+To create these user provided services simply run the following commands:
+```
+cf cups uaa-client -p '{ "clientId" : "uaa-client", "clientSecret" : "uaa-client-secret", "uri" : "[REPLACE_ME_WITH_UAA_URI] }'
+cf cups capi -p '{"uri" : "[REPLACE_ME_WITH_CAPI_URI]" }'
+
+```

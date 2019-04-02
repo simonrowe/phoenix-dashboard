@@ -1,19 +1,16 @@
 package io.pivotal.pa.phoenix.datacollector.service.impl;
 
 import io.pivotal.pa.phoenix.datacollector.service.AggregationChannel;
-import io.pivotal.pa.phoenix.datacollector.service.impl.ProcessCollectorImpl;
-import io.pivotal.pa.phoenix.datacollector.uaa.service.ProcessClient;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.Pagination;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.Process;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.ProcessResponse;
-import org.junit.Before;
+import io.pivotal.pa.phoenix.datacollector.uaa.service.ProcessClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,12 +33,6 @@ public class ProcessCollectorTest {
 
     @InjectMocks
     private ProcessCollectorImpl processCollector;
-
-
-    @Before
-    public void setup() {
-        ReflectionTestUtils.setField(processCollector, "uaaProcessUrl", uaaProcessUrl);
-    }
 
 
     @Test
