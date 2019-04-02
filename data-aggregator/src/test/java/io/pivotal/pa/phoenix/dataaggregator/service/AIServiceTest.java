@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.BDDMockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AggregationSchedulerTest {
+public class AIServiceTest {
 
     @Mock
     private TimeDao timeDao;
@@ -27,7 +27,7 @@ public class AggregationSchedulerTest {
 
 
     @InjectMocks
-    private AggregationScheduler aggregationScheduler;
+    private AIService aggregationScheduler;
 
     @Test
     public void testSchedule() {
