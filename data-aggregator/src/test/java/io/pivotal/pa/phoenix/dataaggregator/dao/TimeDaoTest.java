@@ -1,7 +1,7 @@
-package io.pivotal.pa.pheonix.dataaggregator.dao;
+package io.pivotal.pa.phoenix.dataaggregator.dao;
 
-import io.pivotal.pa.pheonix.dataaggregator.model.ApplicationInstance;
-import io.pivotal.pa.pheonix.dataaggregator.model.Time;
+import io.pivotal.pa.phoenix.dataaggregator.model.ApplicationInstance;
+import io.pivotal.pa.phoenix.dataaggregator.model.Time;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

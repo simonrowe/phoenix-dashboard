@@ -8,7 +8,7 @@
 		<version>2.1.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>io.pivotal.pa.pheonix</groupId>
+	<groupId>io.pivotal.pa.phoenix</groupId>
 	<artifactId>data-aggregator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>data-aggregator</name>

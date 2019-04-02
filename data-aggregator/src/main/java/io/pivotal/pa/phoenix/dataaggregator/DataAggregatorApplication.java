@@ -1,4 +1,4 @@
-package io.pivotal.pa.pheonix.dataaggregator;
+package io.pivotal.pa.phoenix.dataaggregator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,8 +1,8 @@
-package io.pivotal.pa.pheonix.dataaggregator.service;
+package io.pivotal.pa.phoenix.dataaggregator.service;
 
-import io.pivotal.pa.pheonix.dataaggregator.dao.AggregatedAiDao;
-import io.pivotal.pa.pheonix.dataaggregator.dao.TimeDao;
-import io.pivotal.pa.pheonix.dataaggregator.model.Time;
+import io.pivotal.pa.phoenix.dataaggregator.dao.AggregatedAiDao;
+import io.pivotal.pa.phoenix.dataaggregator.dao.TimeDao;
+import io.pivotal.pa.phoenix.dataaggregator.model.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

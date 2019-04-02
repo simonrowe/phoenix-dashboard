@@ -1,7 +1,7 @@
-package io.pivotal.pa.pheonix.dataaggregator.dao;
+package io.pivotal.pa.phoenix.dataaggregator.dao;
 
-import io.pivotal.pa.pheonix.dataaggregator.model.AggregatedAI;
-import io.pivotal.pa.pheonix.dataaggregator.model.Time;
+import io.pivotal.pa.phoenix.dataaggregator.model.AggregatedAI;
+import io.pivotal.pa.phoenix.dataaggregator.model.Time;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

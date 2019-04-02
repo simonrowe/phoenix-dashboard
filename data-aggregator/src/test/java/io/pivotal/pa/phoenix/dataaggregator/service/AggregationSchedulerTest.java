@@ -1,9 +1,9 @@
-package io.pivotal.pa.pheonix.dataaggregator.service;
+package io.pivotal.pa.phoenix.dataaggregator.service;
 
 
-import io.pivotal.pa.pheonix.dataaggregator.dao.AggregatedAiDao;
-import io.pivotal.pa.pheonix.dataaggregator.dao.TimeDao;
-import io.pivotal.pa.pheonix.dataaggregator.model.Time;
+import io.pivotal.pa.phoenix.dataaggregator.dao.AggregatedAiDao;
+import io.pivotal.pa.phoenix.dataaggregator.dao.TimeDao;
+import io.pivotal.pa.phoenix.dataaggregator.model.Time;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;

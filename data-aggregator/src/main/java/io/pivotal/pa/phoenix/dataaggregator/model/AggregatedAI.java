@@ -1,4 +1,4 @@
-package io.pivotal.pa.pheonix.dataaggregator.model;
+package io.pivotal.pa.phoenix.dataaggregator.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
