@@ -1,0 +1,12 @@
+---
+applications:
+- name: phoenix-aggregator
+  memory: 2G
+  path: ./target/data-aggregator-0.0.1-SNAPSHOT.jar
+  instances: 1
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+  services:
+    - security
+    - aggregator-db
+  random-route: true

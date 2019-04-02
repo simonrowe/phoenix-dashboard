@@ -18,11 +18,15 @@ import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.times;
 import static org.mockito.BDDMockito.verify;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -50,6 +54,13 @@ public class AIControllerSecurityTest {
 
         ArgumentCaptor<List> argumentCaptor = ArgumentCaptor.forClass(List.class);
         verify(aiService, never()).save(argumentCaptor.capture());
+    }
+
+    @Test
+    public void testMaxAiCount() throws Exception {
+        given(aiService.maxAiCount()).willReturn(9L);
+        mockMvc.perform(get("/api/application-instance/max")).andExpect(status().isOk())
+                .andExpect(jsonPath("$.count").value(is(9)));
     }
 
 }

@@ -9,4 +9,5 @@ import java.util.List;
 public interface ApplicationInstanceDao extends CrudRepository<ApplicationInstance, Long> {
 
     List<ApplicationInstance> findByTime(Time retrieved);
+
 }

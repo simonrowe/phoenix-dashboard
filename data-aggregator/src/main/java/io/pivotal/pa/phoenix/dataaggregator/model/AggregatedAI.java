@@ -13,14 +13,14 @@ import javax.persistence.*;
 public class AggregatedAI {
 
     public AggregatedAI(Long count) {
-        this.count = count.intValue();
+        this.aiCount = count.intValue();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer count;
+    private Integer aiCount;
 
     @OneToOne
     private Time time;

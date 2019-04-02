@@ -13,4 +13,7 @@ public interface AggregatedAiDao extends CrudRepository<AggregatedAI, Long> {
     AggregatedAI aggregate(@Param("time") Time time);
 
     AggregatedAI findByTime(Time time);
+
+    @Query("select max(aiCount) from AggregatedAI")
+    Long findMaxAIs();
 }

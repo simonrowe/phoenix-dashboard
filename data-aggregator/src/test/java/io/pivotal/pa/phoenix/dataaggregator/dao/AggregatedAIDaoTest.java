@@ -59,6 +59,17 @@ public class AggregatedAIDaoTest {
         AggregatedAI aggregatedAi = aggregatedAiDao.aggregate(retrieved);
         aggregatedAi.setTime(retrieved);
         aggregatedAiDao.save(aggregatedAi);
-        assertThat(aggregatedAiDao.findByTime(retrieved).getCount(), is(9));
+        assertThat(aggregatedAiDao.findByTime(retrieved).getAiCount(), is(9));
+    }
+
+
+
+    @Test
+    public void testFindMaxAIs() {
+        aggregatedAiDao.saveAll(Arrays.asList(new AggregatedAI(9L),
+                new AggregatedAI(19L),
+                new AggregatedAI(5L)));
+        assertThat(aggregatedAiDao.findMaxAIs(), is(19L));
+
     }
 }
