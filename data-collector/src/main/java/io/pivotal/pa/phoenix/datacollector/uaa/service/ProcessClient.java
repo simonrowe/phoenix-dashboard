@@ -1,4 +1,4 @@
-package io.pivotal.pa.phoenix.datacollector.uaa;
+package io.pivotal.pa.phoenix.datacollector.uaa.service;
 
 import io.pivotal.pa.phoenix.datacollector.uaa.model.ProcessResponse;
 

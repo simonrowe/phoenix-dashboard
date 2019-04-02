@@ -1,4 +1,4 @@
-package io.pivotal.pa.phoenix.datacollector;
+package io.pivotal.pa.phoenix.datacollector.service;
 
 import java.util.List;
 

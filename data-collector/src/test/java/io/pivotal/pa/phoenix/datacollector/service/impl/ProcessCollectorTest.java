@@ -1,7 +1,8 @@
-package io.pivotal.pa.phoenix.datacollector;
+package io.pivotal.pa.phoenix.datacollector.service.impl;
 
-import io.pivotal.pa.phoenix.datacollector.impl.ProcessCollectorImpl;
-import io.pivotal.pa.phoenix.datacollector.uaa.ProcessClient;
+import io.pivotal.pa.phoenix.datacollector.service.AggregationChannel;
+import io.pivotal.pa.phoenix.datacollector.service.impl.ProcessCollectorImpl;
+import io.pivotal.pa.phoenix.datacollector.uaa.service.ProcessClient;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.Pagination;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.Process;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.ProcessResponse;
@@ -48,7 +49,7 @@ public class ProcessCollectorTest {
         given(client.process(uaaProcessUrl)).willReturn(page1Process());
         given(client.process(HTTP_UAA_NEXT)).willReturn(lastPageResponse());
 
-        processCollector.collectAndSend();
+        processCollector.collectAndSend(uaaProcessUrl);
 
         verify(client, times(1)).process(uaaProcessUrl);
         verify(client, times(1)).process(HTTP_UAA_NEXT);

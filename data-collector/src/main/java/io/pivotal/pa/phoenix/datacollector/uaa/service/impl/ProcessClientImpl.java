@@ -1,13 +1,13 @@
-package io.pivotal.pa.phoenix.datacollector.uaa.impl;
+package io.pivotal.pa.phoenix.datacollector.uaa.service.impl;
 
-import io.pivotal.pa.phoenix.datacollector.uaa.ProcessClient;
+import io.pivotal.pa.phoenix.datacollector.uaa.service.ProcessClient;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.ProcessResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class ProcessClientImpl  implements ProcessClient {
+public class ProcessClientImpl implements ProcessClient {
 
     @Autowired
     private RestTemplate restTemplate;

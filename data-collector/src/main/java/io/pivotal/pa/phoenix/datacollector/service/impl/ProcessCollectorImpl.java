@@ -1,8 +1,8 @@
-package io.pivotal.pa.phoenix.datacollector.impl;
+package io.pivotal.pa.phoenix.datacollector.service.impl;
 
-import io.pivotal.pa.phoenix.datacollector.AggregationChannel;
-import io.pivotal.pa.phoenix.datacollector.ProcessCollector;
-import io.pivotal.pa.phoenix.datacollector.uaa.ProcessClient;
+import io.pivotal.pa.phoenix.datacollector.service.AggregationChannel;
+import io.pivotal.pa.phoenix.datacollector.service.ProcessCollector;
+import io.pivotal.pa.phoenix.datacollector.uaa.service.ProcessClient;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.Process;
 import io.pivotal.pa.phoenix.datacollector.uaa.model.ProcessResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,6 @@ public class ProcessCollectorImpl implements ProcessCollector {
     @Autowired
     private AggregationChannel<Process> channel;
 
-
-
-    @Override
-    public void collectAndSend() {
-        collectAndSend(uaaProcessUrl);
-    }
 
     @Override
     public void collectAndSend(String uaaProcessUrl) {

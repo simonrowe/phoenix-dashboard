@@ -1,6 +1,7 @@
-package io.pivotal.pa.phoenix.datacollector.uaa;
+package io.pivotal.pa.phoenix.datacollector.uaa.service.impl;
 
 import io.pivotal.pa.phoenix.datacollector.uaa.model.ProcessResponse;
+import io.pivotal.pa.phoenix.datacollector.uaa.service.ProcessClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
