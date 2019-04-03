@@ -16,4 +16,8 @@ public interface AggregatedAiDao extends CrudRepository<AggregatedAI, Long> {
 
     @Query("select new io.pivotal.pa.phoenix.web.model.CountDto(max(aiCount)) from AggregatedAI where time.time >= :fromTime")
     CountDto findMaxAIsAfter(@Param("fromTime") Date fromTime);
+
+
+    @Query("from AggregatedAI as aggAI where id = (select max(id) from AggregatedAI)")
+    AggregatedAI latestAICount();
 }

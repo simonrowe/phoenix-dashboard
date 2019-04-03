@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" >
+        <script src="/js/bootstrap.min.js" ></script>
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script>
+            $().ready(function() {
+                $.get("/api/ais/summary", function(data) {
+                    $("#currentAiCount").text(data.currentCount);
+                    $("#lastCollectedDate").text(data.lastReadDate);
+                    $("#maxAis").text(data.maxCount);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header align-text-bottom" id="headingOne">
+                            <h4 class="mb-0 float-left">
+                                Application Instances
+                            </h4>
+                            <div class="clear">&nbsp;</div>
+                            <div class="float-right">
+                               <small>@ <span id="lastCollectedDate"></span></small>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-lg-center"><h3 id="currentAiCount"></h3></div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="float-right">Max (<span id="maxAis"></span>)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

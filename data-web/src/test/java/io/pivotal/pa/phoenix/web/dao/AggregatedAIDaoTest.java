@@ -52,6 +52,17 @@ public class AggregatedAIDaoTest {
         assertThat(aggregatedAiDao.findMaxAIsAfter(new SimpleDateFormat("dd-MMM-yyyy").parse("01-Feb-2019")).getCount(), is(800));
     }
 
+    @Test
+    public void testLatestAICount() throws Exception {
+        Time firstJan2019 = timeDao.save(new Time(new SimpleDateFormat("dd-MMM-yyyy").parse("01-Jan-2019")));
+        Time firstMarch2019 = timeDao.save(new Time(new SimpleDateFormat("dd-MMM-yyyy").parse("01-Mar-2019")));
+        aggregatedAiDao.saveAll(Arrays.asList(new AggregatedAI(null,1000, firstJan2019),
+                new AggregatedAI(null,800, firstMarch2019)));
+        AggregatedAI aggregatedAI = aggregatedAiDao.latestAICount();
+        assertThat(aggregatedAI.getAiCount(), is(800));
+        assertThat(aggregatedAI.getTime().getId(), is(firstMarch2019.getId()));
+    }
+
 
 
 }
