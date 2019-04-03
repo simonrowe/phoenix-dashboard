@@ -8,4 +8,5 @@ The modules consist of:
 * data-aggregator - a microservice that aggregates injested data and aggregates.
 * web - a microservice that serves api's.
 
-
+Here is a diagram:
+![](docs/architecture.png)
