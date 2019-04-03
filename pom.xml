@@ -10,15 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>uaa-stubs</module>
+        <module>capi-stubs</module>
         <module>data-model</module>
         <module>data-injestion</module>
-        <!--
-        <module>capi-stubs</module>
-
-
-        -->
-
         <module>data-aggregator</module>
         <module>data-collector</module>
         <module>data-web</module>

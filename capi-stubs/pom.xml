@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.pivotal.pa.phoenix</groupId>
-	<artifactId>uaa-stubs</artifactId>
+	<artifactId>capi-stubs</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>UAA Stubs</name>
+	<name>Spring Cloud Contract Stubs for CAPI and UAA</name>
 	<description>Contracts for UAA api endpoints that the dashboard will consume</description>
 
 	<properties>

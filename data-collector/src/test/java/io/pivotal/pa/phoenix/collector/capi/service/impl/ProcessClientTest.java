@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.NONE)
-@AutoConfigureStubRunner(ids = "io.pivotal.pa.phoenix:uaa-stubs:+:10001", stubsMode = StubRunnerProperties.StubsMode.LOCAL)
+@AutoConfigureStubRunner(ids = "io.pivotal.pa.phoenix:capi-stubs:+:10001", stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 public class ProcessClientTest {
 
     @Autowired
