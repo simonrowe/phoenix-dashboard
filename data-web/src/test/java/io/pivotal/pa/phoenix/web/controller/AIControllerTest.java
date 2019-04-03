@@ -28,14 +28,12 @@ public class AIControllerTest {
 
 
     @Test
-    public void testPost() throws Exception {
-
+    public void testAis() throws Exception {
         CountDto countDto = new CountDto(10);
         given(aggregatedAiDao.findMaxAIs()).willReturn(countDto);
         mockMvc.perform(get("/api/ais/max"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.count").value(is(10)));
-
     }
 
 }
