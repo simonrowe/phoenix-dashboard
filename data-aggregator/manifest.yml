@@ -7,6 +7,6 @@ applications:
   env:
     SPRING_PROFILES_ACTIVE: cloud
   services:
-    - security
-    - aggregator-db
-  random-route: true
+    - phoenix-db
+  health-check-type: process
+  no-route: true

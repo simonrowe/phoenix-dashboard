@@ -1,14 +1,9 @@
 #Phoenix Data Aggregator
 
-This microservice runs on one foundation and aggregates a count of application instances (and other stats TBD), and provides a dashboard.
+This microservice runs on one foundation and is responsible for aggregating raw foundation data on a scheduled basis.
 
 ### Getting Started
-The aggregator microservice depends 1 user provided service and one RDMS service:
-* security - this sets the username and password that the collectors will use to interact with this service (Basic Authentication)
-* aggregator-db - this is a mysql service instance that persists the data!
+The aggregator microservice depends on one RDBMS service (that contains the raw data to be aggregated):
+* phoenix-db - this is a mysql service instance that persists the data!
 
-To create these provided services simply run the following commands (note the mysql service may change depending on your marketplace):
-```
-cf cups security -p '{ "user" : "user", "password" : "password"}'
-cf cs p.mysql db-medium aggregator-db
-```
+This db should already be created by the data-injestion module.

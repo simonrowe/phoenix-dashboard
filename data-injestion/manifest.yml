@@ -1,0 +1,12 @@
+---
+applications:
+- name: phoenix-injestion
+  memory: 2G
+  path: ./target/data-injestion-0.0.1-SNAPSHOT.jar
+  instances: 2
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+  services:
+    - security
+    - phoenix-db
+  random-route: true

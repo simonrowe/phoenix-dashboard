@@ -3,16 +3,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.pivotal.pa.phoenix</groupId>
-    <artifactId>foundation-dashboard</artifactId>
+    <artifactId>multi-foundation-dashboard</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>foundation-dashboard</name>
-    <description>Demo project for Spring Boot</description>
+    <name>multi-foundation-dashboard</name>
+    <description>Suite of microservices that collect data from multiple PCF foundations, aggregates and renders in a dashboard</description>
     <packaging>pom</packaging>
 
     <modules>
         <module>uaa-stubs</module>
+        <module>data-model</module>
+        <module>data-injestion</module>
+        <!--
+        <module>capi-stubs</module>
+
+
+        -->
+
         <module>data-aggregator</module>
         <module>data-collector</module>
+        <module>data-web</module>
 
     </modules>
 

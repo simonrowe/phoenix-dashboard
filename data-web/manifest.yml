@@ -1,0 +1,11 @@
+---
+applications:
+- name: phoenix-web
+  memory: 2G
+  path: ./target/data-web-0.0.1-SNAPSHOT.jar
+  instances: 2
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+  services:
+    - phoenix-db
+  random-route: true

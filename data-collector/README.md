@@ -1,6 +1,6 @@
 #Phoenix Data Collector
 
-This microservice runs on each foundation and will send usage stats to a centrallised aggregation microservice.
+This microservice runs on each foundation and will send usage stats to a centrallised injestion endpoint.
 
 ### Getting Started
 In order to run this, you will need to create a new OAuth2 client in UAA that has the cloud_controller.admin_read_only scope.
