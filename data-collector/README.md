@@ -1,4 +1,4 @@
-#Phoenix Data Collector
+# Phoenix Data Collector
 
 This microservice runs on each foundation and will send usage stats to a centrallised injestion endpoint.
 
@@ -27,4 +27,13 @@ cf cups uaa-client -p '{ "clientId" : "uaa-client", "clientSecret" : "uaa-client
 cf cups capi -p '{"uri" : "[REPLACE_ME_WITH_CAPI_URI]" }'
 cf cups injestion -p '{ "uri" : "[REPLACE_ME_WITH_INESTION_URI]", "user" : "user", "password" : "password" }'
 
+```
+
+To control how often data is collected the environment variable SCHEDULER_CRONEXPRESSION. 
+
+Examples of this are:
+```
+0 0/30 * * * *  (run every 30 minutes)
+0 0 0/1 * * *  (run every 1 hour)
+0 0 6 * * *  (run every day at 6am)
 ```

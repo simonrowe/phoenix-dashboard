@@ -1,4 +1,4 @@
-#Phoenix Data Aggregator
+# Phoenix Data Aggregator
 
 This microservice runs on one foundation and is responsible for aggregating raw foundation data on a scheduled basis.
 
@@ -7,3 +7,15 @@ The aggregator microservice depends on one RDBMS service (that contains the raw 
 * phoenix-db - this is a mysql service instance that persists the data!
 
 This db should already be created by the data-injestion module.
+
+
+To control how often data is aggregated the environment variable CRONEXPRESSION can be set. 
+
+Examples of this are:
+```
+0 0/30 * * * *  (run every 30 minutes)
+0 0 0/1 * * *  (run every 1 hour)
+0 0 6 * * *  (run every day at 6am)
+```
+
+n.b. This should run after the collectors have finished sending data to injestion microservice.
