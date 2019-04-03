@@ -1,8 +1,9 @@
-package io.pivotal.pa.phoenix.collector.uaa.service.impl;
+package io.pivotal.pa.phoenix.collector.capi.service.impl;
 
-import io.pivotal.pa.phoenix.collector.uaa.service.ProcessClient;
-import io.pivotal.pa.phoenix.collector.uaa.model.ProcessResponse;
+import io.pivotal.pa.phoenix.collector.capi.service.ProcessClient;
+import io.pivotal.pa.phoenix.collector.capi.model.ProcessResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class ProcessClientImpl implements ProcessClient {
 
     @Autowired
+    @Qualifier("oauth2RestTemplate")
     private RestTemplate restTemplate;
 
     @Override

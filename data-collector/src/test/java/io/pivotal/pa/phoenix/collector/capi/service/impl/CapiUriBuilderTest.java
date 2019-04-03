@@ -1,5 +1,6 @@
-package io.pivotal.pa.phoenix.collector.service.impl;
+package io.pivotal.pa.phoenix.collector.capi.service.impl;
 
+import io.pivotal.pa.phoenix.collector.capi.service.impl.CapiUriBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

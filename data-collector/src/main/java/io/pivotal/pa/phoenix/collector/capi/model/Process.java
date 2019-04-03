@@ -1,4 +1,4 @@
-package io.pivotal.pa.phoenix.collector.uaa.model;
+package io.pivotal.pa.phoenix.collector.capi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

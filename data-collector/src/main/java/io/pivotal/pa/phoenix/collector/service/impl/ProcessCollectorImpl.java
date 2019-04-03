@@ -2,9 +2,9 @@ package io.pivotal.pa.phoenix.collector.service.impl;
 
 import io.pivotal.pa.phoenix.collector.service.AggregationChannel;
 import io.pivotal.pa.phoenix.collector.service.ProcessCollector;
-import io.pivotal.pa.phoenix.collector.uaa.model.Process;
-import io.pivotal.pa.phoenix.collector.uaa.model.ProcessResponse;
-import io.pivotal.pa.phoenix.collector.uaa.service.ProcessClient;
+import io.pivotal.pa.phoenix.collector.capi.model.Process;
+import io.pivotal.pa.phoenix.collector.capi.model.ProcessResponse;
+import io.pivotal.pa.phoenix.collector.capi.service.ProcessClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

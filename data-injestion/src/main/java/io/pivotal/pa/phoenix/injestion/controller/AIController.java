@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class AIController {
 
     @PostMapping("ai/receive")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveAis(@RequestBody List<ApplicationInstance> ais) {
+    public void saveAis(@Valid @RequestBody List<ApplicationInstance> ais) {
         aiService.save(ais);
     }
 

@@ -1,4 +1,4 @@
-package io.pivotal.pa.phoenix.collector.service.impl;
+package io.pivotal.pa.phoenix.collector.capi.service.impl;
 
 import org.springframework.beans.factory.annotation.Value;
 

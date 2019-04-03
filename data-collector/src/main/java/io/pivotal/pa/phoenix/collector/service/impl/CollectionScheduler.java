@@ -1,5 +1,6 @@
 package io.pivotal.pa.phoenix.collector.service.impl;
 
+import io.pivotal.pa.phoenix.collector.capi.service.impl.CapiUriBuilder;
 import io.pivotal.pa.phoenix.collector.service.ProcessCollector;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

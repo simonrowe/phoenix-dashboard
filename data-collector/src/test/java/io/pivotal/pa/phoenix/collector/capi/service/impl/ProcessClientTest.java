@@ -1,7 +1,7 @@
-package io.pivotal.pa.phoenix.collector.uaa.service.impl;
+package io.pivotal.pa.phoenix.collector.capi.service.impl;
 
-import io.pivotal.pa.phoenix.collector.uaa.model.ProcessResponse;
-import io.pivotal.pa.phoenix.collector.uaa.service.ProcessClient;
+import io.pivotal.pa.phoenix.collector.capi.model.ProcessResponse;
+import io.pivotal.pa.phoenix.collector.capi.service.ProcessClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

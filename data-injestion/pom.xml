@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+		<spring-cloud-contract.version>2.0.3.RELEASE</spring-cloud-contract.version>
 	</properties>
 
 	<dependencies>
@@ -98,6 +99,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<version>${spring-cloud-contract.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<testMode>EXPLICIT</testMode>
+					<packageWithBaseClasses>io.pivotal.pa.phoenix.injestion</packageWithBaseClasses>
+					<basePackageForTests>io.pivotal.pa.phoenix.injestion</basePackageForTests>
+					<baseClassForTests>io.pivotal.pa.phoenix.injestion.ContractVerifierBase</baseClassForTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

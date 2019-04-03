@@ -1,5 +1,6 @@
 package io.pivotal.pa.phoenix.collector.service.impl;
 
+import io.pivotal.pa.phoenix.collector.capi.service.impl.CapiUriBuilder;
 import io.pivotal.pa.phoenix.collector.service.ProcessCollector;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,9 +30,9 @@ public class CollectionSchedulerTest {
 
     @Test
     public void testSchedule() {
-        given(processUriBuilder.build()).willReturn("http://uaa");
+        given(processUriBuilder.build()).willReturn("http://capi");
         collectionScheduler.collect();
-        verify(processCollector,times(1)).collectAndSend(eq("http://uaa"));
+        verify(processCollector,times(1)).collectAndSend(eq("http://capi"));
     }
 
 }

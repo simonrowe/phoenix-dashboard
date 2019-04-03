@@ -19,10 +19,12 @@ uaac client add uaa-client --authorities cloud_controller.admin_read_only --scop
 The collector microservice depends on 2 user provided services:
 * uaa-client
 * capi
+* injestion
 
 To create these user provided services simply run the following commands:
 ```
-cf cups uaa-client -p '{ "clientId" : "uaa-client", "clientSecret" : "uaa-client-secret", "uri" : "[REPLACE_ME_WITH_UAA_URI] }'
+cf cups uaa-client -p '{ "clientId" : "uaa-client", "clientSecret" : "uaa-client-secret", "uri" : "[REPLACE_ME_WITH_UAA_URI]" }'
 cf cups capi -p '{"uri" : "[REPLACE_ME_WITH_CAPI_URI]" }'
+cf cups injestion -p '{ "uri" : "[REPLACE_ME_WITH_INESTION_URI]", "user" : "user", "password" : "password" }'
 
 ```
