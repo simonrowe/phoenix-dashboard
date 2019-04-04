@@ -13,7 +13,7 @@ org.springframework.cloud.contract.spec.Contract.make {
         body("""{
            "pagination": {
               "last": "http://localhost:10001/v3/processes?page=2&per_page=2",
-              "next": "http://localhost:10001/v3/processes?page=2&per_page=2"
+              "next": null
            },
            "resources" : [
              {
