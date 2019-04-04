@@ -34,4 +34,37 @@
 
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.devskiller.jpa2ddl</groupId>
+				<artifactId>jpa2ddl-maven-plugin</artifactId>
+				<version>0.9.5</version>
+				<configuration>
+					<packages>
+						<package>io.pivotal.pa.phoenix.model</package>
+					</packages>
+					<outputPath>${project.build.directory}/schema.sql</outputPath>
+					<jpaProperties>
+						<property>
+							<name>hibernate.dialect</name>
+							<value>org.hibernate.dialect.MariaDBDialect</value>
+						</property>
+						<property>
+							<name>hibernate.physical_naming_strategy</name>
+							<value>com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy</value>
+						</property>
+					</jpaProperties>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.vladmihalcea</groupId>
+						<artifactId>hibernate-types-52</artifactId>
+						<version>2.4.2</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

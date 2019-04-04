@@ -19,3 +19,7 @@ Examples of this are:
 ```
 
 n.b. This should run after the collectors have finished sending data to injestion microservice.
+
+This microservice is also responsible for generating the db schema. For this we are using flyway and all scripts can be found underneath src/main/resources/db/migration.
+
+To generate a schema from the Data Model, please see instructions [here](../data-model/README.md).
