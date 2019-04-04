@@ -9,14 +9,14 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "aggregated_ai")
+@Table(name = "aggregated_si")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class AggregatedAI {
+public class AggregatedSI {
 
-    public AggregatedAI(Long count) {
-        this.aiCount = count.intValue();
+    public AggregatedSI(Long count) {
+        this.siCount = count.intValue();
     }
 
     @Id
@@ -24,7 +24,7 @@ public class AggregatedAI {
     private Long id;
 
     @NotNull
-    private Integer aiCount;
+    private Integer siCount;
 
     @OneToOne
     private Time time;
