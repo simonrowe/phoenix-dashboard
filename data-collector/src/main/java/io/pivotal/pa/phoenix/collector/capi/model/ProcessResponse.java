@@ -12,4 +12,8 @@ public class ProcessResponse extends AbstractResponse {
     @JsonProperty("resources")
     private List<Process> processes;
 
+    @Override
+    public List getResources() {
+        return getProcesses();
+    }
 }

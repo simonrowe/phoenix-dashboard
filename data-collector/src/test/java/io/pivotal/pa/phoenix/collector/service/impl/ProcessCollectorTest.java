@@ -1,11 +1,11 @@
 package io.pivotal.pa.phoenix.collector.service.impl;
 
 import io.pivotal.pa.phoenix.collector.capi.model.Href;
-import io.pivotal.pa.phoenix.collector.service.AggregationChannel;
 import io.pivotal.pa.phoenix.collector.capi.model.Pagination;
 import io.pivotal.pa.phoenix.collector.capi.model.Process;
 import io.pivotal.pa.phoenix.collector.capi.model.ProcessResponse;
-import io.pivotal.pa.phoenix.collector.capi.service.ProcessClient;
+import io.pivotal.pa.phoenix.collector.capi.service.impl.ProcessClientImpl;
+import io.pivotal.pa.phoenix.collector.service.AggregationChannel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -25,7 +25,7 @@ public class ProcessCollectorTest {
 
     public static final String HTTP_UAA_NEXT = "http://capi/next";
     @Mock
-    private ProcessClient client;
+    private ProcessClientImpl client;
 
     private String uaaProcessUrl = "http://capi/";
 

@@ -1,7 +1,7 @@
 package io.pivotal.pa.phoenix.collector.service.impl;
 
 import io.pivotal.pa.phoenix.collector.capi.service.impl.CapiUriBuilder;
-import io.pivotal.pa.phoenix.collector.service.ProcessCollector;
+import io.pivotal.pa.phoenix.collector.service.Collector;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,13 +9,15 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import java.util.Arrays;
+
 import static org.mockito.BDDMockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CollectionSchedulerTest {
 
     @Mock
-    private ProcessCollector processCollector;
+    private Collector processCollector;
 
     @Mock
     private CapiUriBuilder processUriBuilder;
@@ -24,7 +26,7 @@ public class CollectionSchedulerTest {
 
     @Before
     public void setUp() {
-        ReflectionTestUtils.setField(collectionScheduler, "processCollector", processCollector);
+        ReflectionTestUtils.setField(collectionScheduler, "collectors", Arrays.asList(processCollector));
         ReflectionTestUtils.setField(collectionScheduler, "processUriBuilder", processUriBuilder);
     }
 

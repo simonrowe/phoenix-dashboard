@@ -1,7 +1,7 @@
 package io.pivotal.pa.phoenix.collector.capi.service.impl;
 
-import io.pivotal.pa.phoenix.collector.capi.model.ProcessResponse;
-import io.pivotal.pa.phoenix.collector.capi.service.ProcessClient;
+import io.pivotal.pa.phoenix.collector.capi.model.ServiceResponse;
+import io.pivotal.pa.phoenix.collector.capi.service.CloudControllerClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +18,29 @@ import static org.junit.Assert.*;
 @AutoConfigureStubRunner(ids = "io.pivotal.pa.phoenix:capi-stubs:+:10001", stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 public class ServiceClientTest {
     @Autowired
-    private ServiceClient client;
+    private CloudControllerClient<ServiceResponse> client;
 
     @Test
     public void testProcessFirstPage() throws Exception {
-        ProcessResponse response = client.process("http://localhost:10001/v3/service_instances?page=1&per_page=2");
+        ServiceResponse response = client.process("http://localhost:10001/v3/service_instances?page=1&per_page=2");
         assertNotNull(response);
         assertThat(response.getNextPageUri(), is("http://localhost:10001/v3/service_instances?page=2&per_page=2"));
         assertThat(response.getServices().size(), is(2));
-        assertThat(response.getProcesses().get(0).getGuid(), is ("abc123"));
-        assertThat(response.getProcesses().get(0).getInstances(), is(1));
-        assertThat(response.getProcesses().get(1).getGuid(), is ("abc567"));
-        assertThat(response.getProcesses().get(1).getInstances(), is(3));
+        assertThat(response.getServices().get(0).getGuid(), is ("abc123"));
+        assertThat(response.getServices().get(0).getName(), is ("redis"));
+        //assertThat(response.getServices().get(0).getInstances(), is(1));
+        assertThat(response.getServices().get(1).getGuid(), is ("abc567"));
+        assertThat(response.getServices().get(1).getName(), is ("mysql"));
+        //assertThat(response.getProcesses().get(1).getInstances(), is(3));
     }
 
     @Test
     public void testProcessSecondPage() throws Exception {
-        ProcessResponse response = client.process("http://localhost:10001/v3/service_instances?page=2&per_page=2");
+        ServiceResponse response = client.process("http://localhost:10001/v3/service_instances?page=2&per_page=2");
         assertNotNull(response);
         assertNull(response.getNextPageUri());
-        assertThat(response.getProcesses().size(), is(1));
-        assertThat(response.getProcesses().get(0).getGuid(), is ("def456"));
-        assertThat(response.getProcesses().get(0).getInstances(), is(1));
+        assertThat(response.getServices().size(), is(1));
+        assertThat(response.getServices().get(0).getGuid(), is ("def456"));
+        assertThat(response.getServices().get(0).getName(), is ("redis"));
     }
 }
