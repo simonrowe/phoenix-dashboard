@@ -10,6 +10,6 @@ applications:
   services:
     - capi
     - uaa-client
-    - injestion
+    - ingestor
   health-check-type: process
   no-route: true

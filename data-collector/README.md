@@ -1,6 +1,6 @@
 # Phoenix Data Collector
 
-This microservice runs on each foundation and will send usage stats to a centrallised injestion endpoint.
+This microservice runs on each foundation and will send usage stats to a centrallised ingestor endpoint.
 
 ### Getting Started
 In order to run this, you will need to create a new OAuth2 client in UAA that has the cloud_controller.admin_read_only scope.
@@ -19,13 +19,13 @@ uaac client add uaa-client --authorities cloud_controller.admin_read_only --scop
 The collector microservice depends on 2 user provided services:
 * uaa-client
 * capi
-* injestion
+* ingestor
 
 To create these user provided services simply run the following commands:
 ```
 cf cups uaa-client -p '{ "clientId" : "uaa-client", "clientSecret" : "uaa-client-secret", "uri" : "[REPLACE_ME_WITH_UAA_URI]" }'
 cf cups capi -p '{"uri" : "[REPLACE_ME_WITH_CAPI_URI]" }'
-cf cups injestion -p '{ "uri" : "[REPLACE_ME_WITH_INESTION_URI]", "user" : "user", "password" : "password" }'
+cf cups ingestor -p '{ "uri" : "[REPLACE_ME_WITH_INGESTOR_URI]", "user" : "user", "password" : "password" }'
 
 ```
 

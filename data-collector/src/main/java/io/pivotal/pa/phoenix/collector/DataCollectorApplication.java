@@ -34,8 +34,8 @@ public class DataCollectorApplication {
         return new OAuth2RestTemplate(oAuth2ProtectedResourceDetails);
     }
 
-    @Bean("injestorRestTemplate")
-    public RestTemplate restTemplate(RestTemplateBuilder builder, @Value("${injestion.security.username}") String user, @Value("${injestion.security.password}") String pass) {
+    @Bean("ingestorRestTemplate")
+    public RestTemplate restTemplate(RestTemplateBuilder builder, @Value("${ingestor.security.username}") String user, @Value("${ingestor.security.password}") String pass) {
         return builder.basicAuthentication(user, pass).build();
     }
 

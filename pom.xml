@@ -12,7 +12,7 @@
     <modules>
         <module>capi-stubs</module>
         <module>data-model</module>
-        <module>data-injestion</module>
+        <module>data-ingestor</module>
         <module>data-aggregator</module>
         <module>data-collector</module>
         <module>data-web</module>
