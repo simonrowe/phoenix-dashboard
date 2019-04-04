@@ -1,3 +1,5 @@
+package contracts
+
 org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'GET'
@@ -10,8 +12,12 @@ org.springframework.cloud.contract.spec.Contract.make {
         status 200
         body("""{
            "pagination": {
-              "last": "http://localhost:10001/v3/processes?page=2&per_page=2",
-              "next": "http://localhost:10001/v3/processes?page=2&per_page=2"
+              "last": {
+                 "href" : "http://localhost:10001/v3/processes?page=2&per_page=2"
+              },
+              "next": {
+                  "href" :"http://localhost:10001/v3/processes?page=2&per_page=2"
+               }
            },
            "resources" : [
              {
