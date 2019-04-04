@@ -1,5 +1,5 @@
 {
-  "id" : "d33cbac3-b648-4a5b-bc00-b975045641ca",
+  "id" : "1e55887b-f945-44d0-aec8-af81417afdf2",
   "request" : {
     "url" : "/v3/service_instances?page=1&per_page=2",
     "method" : "GET",
@@ -17,5 +17,5 @@
     },
     "transformers" : [ "response-template" ]
   },
-  "uuid" : "d33cbac3-b648-4a5b-bc00-b975045641ca"
+  "uuid" : "1e55887b-f945-44d0-aec8-af81417afdf2"
 }
