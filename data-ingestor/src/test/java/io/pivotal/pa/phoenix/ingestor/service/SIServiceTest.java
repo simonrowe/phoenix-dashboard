@@ -1,8 +1,8 @@
 package io.pivotal.pa.phoenix.ingestor.service;
 
 
-import io.pivotal.pa.phoenix.ingestor.dao.ApplicationInstanceDao;
-import io.pivotal.pa.phoenix.model.ApplicationInstance;
+import io.pivotal.pa.phoenix.ingestor.dao.ServiceInstanceDao;
+import io.pivotal.pa.phoenix.model.ServiceInstance;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,18 +19,18 @@ public class SIServiceTest {
 
 
     @Mock
-    private ApplicationInstanceDao aiDao;
+    private ServiceInstanceDao aiDao;
 
     @InjectMocks
-    private AIService aiService;
+    private SIService siService;
 
     @Test
     public void testPersist() {
-        List<ApplicationInstance> toSave = Arrays.asList(
-                new ApplicationInstance(null, "abc123", 4, "foundation1", null),
-                new ApplicationInstance(null, "abc123", 4, "foundation2", null)
+        List<ServiceInstance> toSave = Arrays.asList(
+                new ServiceInstance(null, "abc123", "mysql", "foundation1", null),
+                new ServiceInstance(null, "abc123", "rabbit", "foundation2", null)
         );
-        aiService.save(toSave);
+        siService.save(toSave);
         verify(aiDao, times(1)).saveAll(eq(toSave));
 
     }
