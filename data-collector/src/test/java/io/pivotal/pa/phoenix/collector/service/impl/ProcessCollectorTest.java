@@ -1,5 +1,6 @@
 package io.pivotal.pa.phoenix.collector.service.impl;
 
+import io.pivotal.pa.phoenix.collector.capi.model.Href;
 import io.pivotal.pa.phoenix.collector.service.AggregationChannel;
 import io.pivotal.pa.phoenix.collector.capi.model.Pagination;
 import io.pivotal.pa.phoenix.collector.capi.model.Process;
@@ -67,7 +68,7 @@ public class ProcessCollectorTest {
 
     private ProcessResponse page1Process() {
         Pagination pagination = new Pagination();
-        pagination.setNext(HTTP_UAA_NEXT);
+        pagination.setNext(new Href(HTTP_UAA_NEXT));
         ProcessResponse processResponse = new ProcessResponse();
         processResponse.setPagination(pagination);
         processResponse.setProcesses(Arrays.asList(

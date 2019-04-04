@@ -17,11 +17,10 @@ public class ProcessResponse {
     private List<Process> processes;
 
     public String getNextPageUri() {
-        return getPagination().getNext();
+        return hasNextPage() ? getPagination().getNext().getHref() : null;
     }
-
-
+    
     public boolean hasNextPage() {
-        return pagination != null && getNextPageUri() != null;
+        return pagination != null && getPagination().getNext() != null;
     }
 }

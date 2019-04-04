@@ -7,5 +7,5 @@ import lombok.Data;
 public class Pagination {
 
     @JsonProperty("next")
-    private String next;
+    private Href next;
 }
