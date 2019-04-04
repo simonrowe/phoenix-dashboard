@@ -1,4 +1,4 @@
-# Phoenix Ingestion
+# Phoenix Ingestor
 
 This microservice runs on one foundation and provides a secure endpoint to ingest data colleceted by the data-collector module.
 
