@@ -22,22 +22,22 @@ public class ProcessAggregationChannel implements AggregationChannel<Process> {
     @Value("${foundation.id}")
     private String foundationId;
 
-    @Value("${injestion.uri}")
-    private String injestionUri;
+    @Value("${ingestor.uri}")
+    private String ingestorUri;
 
-    @Value("${injestion.ai.path}")
-    private String injestionPath;
+    @Value("${ingestor.ai.path}")
+    private String ingestorPath;
 
 
     @Autowired
-    @Qualifier("injestorRestTemplate")
+    @Qualifier("ingestorRestTemplate")
     private RestTemplate restTemplate;
 
 
     @Override
     public void send(List<Process> objects) {
         log.info("Sending the folllowing objects to the aggregator:" + foundationId);
-        restTemplate.postForEntity(injestionUri + injestionPath,
+        restTemplate.postForEntity(ingestorUri + ingestorPath,
                 objects.stream().map(p -> new ApplicationInstance(null, p.getGuid(), p.getInstances(), foundationId, null))
                         .collect(toList()), String.class);
 

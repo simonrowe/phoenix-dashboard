@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-@AutoConfigureStubRunner(ids = "io.pivotal.pa.phoenix:data-injestion:+:10002", stubsMode = StubRunnerProperties.StubsMode.LOCAL)
+@AutoConfigureStubRunner(ids = "io.pivotal.pa.phoenix:data-ingestor:+:10002", stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 public class ProcessAggregationChannelIntegrationTest {
 
 

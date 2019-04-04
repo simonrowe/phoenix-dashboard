@@ -6,7 +6,7 @@ This microservice runs on one foundation and is responsible for aggregating raw 
 The aggregator microservice depends on one RDBMS service (that contains the raw data to be aggregated):
 * phoenix-db - this is a mysql service instance that persists the data!
 
-This db should already be created by the data-injestion module.
+This db should already be created by the data-ingestor module.
 
 
 To control how often data is aggregated the environment variable CRONEXPRESSION can be set. 
@@ -18,7 +18,7 @@ Examples of this are:
 0 0 6 * * *  (run every day at 6am)
 ```
 
-n.b. This should run after the collectors have finished sending data to injestion microservice.
+n.b. This should run after the collectors have finished sending data to ingestor microservice.
 
 This microservice is also responsible for generating the db schema. For this we are using flyway and all scripts can be found underneath src/main/resources/db/migration.
 
