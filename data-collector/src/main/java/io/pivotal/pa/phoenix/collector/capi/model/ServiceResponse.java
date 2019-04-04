@@ -3,13 +3,12 @@ package io.pivotal.pa.phoenix.collector.capi.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
 
+import java.util.List;
 @NoArgsConstructor
 @Data
-public class ProcessResponse extends AbstractResponse {
 
+public class ServiceResponse extends AbstractResponse {
     @JsonProperty("resources")
-    private List<Process> processes;
-
+    private List<Services> services;
 }

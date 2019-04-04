@@ -40,8 +40,13 @@ public class DataCollectorApplication {
     }
 
     @Bean("processUriBuilder")
-    public CapiUriBuilder processUriBuilder(@Value("${capi.processes.path}") String capiProcessPath) {
+    public CapiUriBuilder processesUriBuilder(@Value("${capi.processes.path}") String capiProcessPath) {
         return new CapiUriBuilder(capiProcessPath);
+    }
+
+    @Bean("serviceUriBuilder")
+    public CapiUriBuilder serviceUriBuilder(@Value("${capi.serviceInstance.path}") String capiServicePath) {
+        return new CapiUriBuilder(capiServicePath);
     }
 
 }

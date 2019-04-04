@@ -1,7 +1,9 @@
 package io.pivotal.pa.phoenix.collector.capi.service.impl;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
+@Data
 public class CapiUriBuilder {
 
     @Value("${default.builder.pageSize}")
