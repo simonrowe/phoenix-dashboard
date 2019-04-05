@@ -2,8 +2,8 @@ package io.pivotal.pa.phoenix.aggregator.service;
 
 
 import io.pivotal.pa.phoenix.aggregator.dao.AggregatedSiDao;
-import io.pivotal.pa.phoenix.aggregator.dao.TimeDao;
-import io.pivotal.pa.phoenix.model.AggregatedAI;
+import io.pivotal.pa.phoenix.aggregator.dao.TimeSIDao;
+import io.pivotal.pa.phoenix.model.AggregatedSI;
 import io.pivotal.pa.phoenix.model.Time;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,29 +23,29 @@ import static org.mockito.BDDMockito.*;
 public class SIAggregationServiceTest {
 
     @Mock
-    private TimeDao timeDao;
+    private TimeSIDao timeSIDao;
 
     @Mock
-    private AggregatedSiDao aggregatedAiDao;
+    private AggregatedSiDao aggregatedSiDao;
 
 
     @InjectMocks
-    private AIAggregationService aggregationScheduler;
+    private SIAggregationService aggregationScheduler;
 
     @Test
     public void testSchedule() {
         Time time = new Time(new Date());
         ArgumentCaptor<Time> timeArgumentCaptor = ArgumentCaptor.forClass(Time.class);
-        when(timeDao.save(timeArgumentCaptor.capture())).thenReturn(time);
-        AggregatedAI aggregatedAI = new AggregatedAI();
-        when(aggregatedAiDao.aggregate(isA(Time.class))).thenReturn(aggregatedAI);
+        when(timeSIDao.save(timeArgumentCaptor.capture())).thenReturn(time);
+        AggregatedSI aggregatedSI = new AggregatedSI();
+        when(aggregatedSiDao.aggregate(isA(Time.class))).thenReturn(aggregatedSI);
         aggregationScheduler.aggregate();
 
-        verify(timeDao, times(1)).associateTime(time);
+        verify(timeSIDao, times(1)).associateTime(time);
         assertNotNull(timeArgumentCaptor.getValue().getTime());
 
-        assertThat(aggregatedAI.getTime(), is(time));
-        verify(aggregatedAiDao, times(1)).save(aggregatedAI);
+        assertThat(aggregatedSI.getTime(), is(time));
+        verify(aggregatedSiDao, times(1)).save(aggregatedSI);
     }
 
 }

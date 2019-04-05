@@ -4,6 +4,7 @@ package io.pivotal.pa.phoenix.aggregator.dao;
 import io.pivotal.pa.phoenix.model.AggregatedSI;
 import io.pivotal.pa.phoenix.model.ServiceInstance;
 import io.pivotal.pa.phoenix.model.Time;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,25 +28,26 @@ public class AggregatedSIDaoTest {
     private AggregatedSiDao aggregatedSiDao;
 
     @Autowired
-    private TimeDao timeDao;
+    private TimeSIDao timeSIDao;
 
     @Autowired
     private ServiceInstanceDao serviceInstanceDao;
 
     @Before
+    @After
     public void before() {
         aggregatedSiDao.deleteAll();
-        timeDao.deleteAll();
         serviceInstanceDao.deleteAll();
+        timeSIDao.deleteAll();
     }
 
     @Test
     public void testAggregation() {
         //set up the time record
         Time time = new Time(new Date());
-        Time saved = timeDao.save(time);
+        Time saved = timeSIDao.save(time);
         assertNotNull(saved);
-        Time retrieved = timeDao.findById(saved.getId()).get();
+        Time retrieved = timeSIDao.findById(saved.getId()).get();
 
         List<ServiceInstance> sisToPersist = Arrays.asList(
                 new ServiceInstance(null, "abc123", "mysql", "foundation1", null),
@@ -54,11 +56,10 @@ public class AggregatedSIDaoTest {
         );
 
         serviceInstanceDao.saveAll(sisToPersist);
-        timeDao.associateTime(retrieved);
-        assertThat(aggregatedSiDao.count(), is(0l));
+        timeSIDao.associateTime(retrieved);
         AggregatedSI aggregatedSi = aggregatedSiDao.aggregate(retrieved);
         aggregatedSi.setTime(retrieved);
         aggregatedSiDao.save(aggregatedSi);
-        assertThat(aggregatedSiDao.findByTime(retrieved).getSiCount(), is(9));
+        assertThat(aggregatedSiDao.findByTime(retrieved).getSiCount(), is(3));
     }
 }
