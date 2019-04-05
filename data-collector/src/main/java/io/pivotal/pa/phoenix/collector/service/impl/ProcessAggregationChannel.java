@@ -35,11 +35,13 @@ public class ProcessAggregationChannel implements AggregationChannel<Process> {
 
 
     @Override
-    public void send(List<Process> objects) {
+    public void send(List objects) {
         log.info("Sending the folllowing objects to the aggregator:" + foundationId);
         restTemplate.postForEntity(ingestorUri + ingestorPath,
-                objects.stream().map(p -> new ApplicationInstance(null, p.getGuid(), p.getInstances(), foundationId, null))
-                        .collect(toList()), String.class);
+                objects.stream().map(obj -> {
+                    Process p = (Process)obj;
+                    return new ApplicationInstance(null, p.getGuid(), p.getInstances(), foundationId, null);
+                }).collect(toList()), String.class);
 
     }
 }

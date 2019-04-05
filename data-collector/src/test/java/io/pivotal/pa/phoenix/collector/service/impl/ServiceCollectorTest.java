@@ -1,7 +1,6 @@
 package io.pivotal.pa.phoenix.collector.service.impl;
 
 import io.pivotal.pa.phoenix.collector.capi.model.*;
-import io.pivotal.pa.phoenix.collector.capi.model.Process;
 import io.pivotal.pa.phoenix.collector.capi.service.impl.ServiceClientImpl;
 import io.pivotal.pa.phoenix.collector.service.AggregationChannel;
 import org.junit.Test;
@@ -54,10 +53,10 @@ public class ServiceCollectorTest {
         assertThat("redis", is(servicesInFirstCall.get(0).getName()));
     }
 
-    private ServiceResponse lastPageResponse() {
+    private ServiceCloudControllerResponse lastPageResponse() {
         Pagination pagination = new Pagination();
         pagination.setNext(null);
-        ServiceResponse serviceResponse = new ServiceResponse();
+        ServiceCloudControllerResponse serviceResponse = new ServiceCloudControllerResponse();
         serviceResponse.setPagination(pagination);
         serviceResponse.setServices(Arrays.asList(
                 new Services("efg890", "redis")
@@ -65,10 +64,10 @@ public class ServiceCollectorTest {
         return serviceResponse;
     }
 
-    private ServiceResponse page1Service() {
+    private ServiceCloudControllerResponse page1Service() {
         Pagination pagination = new Pagination();
         pagination.setNext(new Href(HTTP_UAA_NEXT));
-        ServiceResponse serviceResponse = new ServiceResponse();
+        ServiceCloudControllerResponse serviceResponse = new ServiceCloudControllerResponse();
         serviceResponse.setPagination(pagination);
         serviceResponse.setServices(Arrays.asList(
                 new Services("abc123", "redis"),

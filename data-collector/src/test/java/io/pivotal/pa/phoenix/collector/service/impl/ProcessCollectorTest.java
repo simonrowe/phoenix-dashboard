@@ -3,7 +3,7 @@ package io.pivotal.pa.phoenix.collector.service.impl;
 import io.pivotal.pa.phoenix.collector.capi.model.Href;
 import io.pivotal.pa.phoenix.collector.capi.model.Pagination;
 import io.pivotal.pa.phoenix.collector.capi.model.Process;
-import io.pivotal.pa.phoenix.collector.capi.model.ProcessResponse;
+import io.pivotal.pa.phoenix.collector.capi.model.ProcessCloudControllerResponse;
 import io.pivotal.pa.phoenix.collector.capi.service.impl.ProcessClientImpl;
 import io.pivotal.pa.phoenix.collector.service.AggregationChannel;
 import org.junit.Test;
@@ -55,10 +55,10 @@ public class ProcessCollectorTest {
         assertThat(5, is(processesInFirstCall.get(0).getInstances()));
     }
 
-    private ProcessResponse lastPageResponse() {
+    private ProcessCloudControllerResponse lastPageResponse() {
         Pagination pagination = new Pagination();
         pagination.setNext(null);
-        ProcessResponse processResponse = new ProcessResponse();
+        ProcessCloudControllerResponse processResponse = new ProcessCloudControllerResponse();
         processResponse.setPagination(pagination);
         processResponse.setProcesses(Arrays.asList(
                 new Process("efg890", 5)
@@ -66,10 +66,10 @@ public class ProcessCollectorTest {
         return processResponse;
     }
 
-    private ProcessResponse page1Process() {
+    private ProcessCloudControllerResponse page1Process() {
         Pagination pagination = new Pagination();
         pagination.setNext(new Href(HTTP_UAA_NEXT));
-        ProcessResponse processResponse = new ProcessResponse();
+        ProcessCloudControllerResponse processResponse = new ProcessCloudControllerResponse();
         processResponse.setPagination(pagination);
         processResponse.setProcesses(Arrays.asList(
                 new Process("abc123", 2),

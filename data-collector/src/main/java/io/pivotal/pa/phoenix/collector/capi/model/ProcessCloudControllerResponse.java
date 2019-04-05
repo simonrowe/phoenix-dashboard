@@ -7,7 +7,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @Data
-public class ProcessResponse extends AbstractResponse {
+public class ProcessCloudControllerResponse extends AbstractCloudControllerResponse {
 
     @JsonProperty("resources")
     private List<Process> processes;

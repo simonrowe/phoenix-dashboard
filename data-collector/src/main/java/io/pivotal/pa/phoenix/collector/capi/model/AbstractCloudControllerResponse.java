@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public abstract class AbstractResponse {
+public abstract class AbstractCloudControllerResponse {
     @JsonProperty("pagination")
     private Pagination pagination;
 
