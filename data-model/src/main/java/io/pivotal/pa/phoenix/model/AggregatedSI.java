@@ -15,9 +15,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class AggregatedSI {
 
-    public AggregatedSI(Long count) {
-        this.siCount = count.intValue();
-    }
+    public AggregatedSI(Long count) { this.siCount = count.intValue();}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
