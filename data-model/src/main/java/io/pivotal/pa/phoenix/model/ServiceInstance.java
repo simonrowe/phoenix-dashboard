@@ -15,12 +15,8 @@ import javax.validation.constraints.NotNull;
 })
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class ServiceInstance {
+public class ServiceInstance extends AbstractInstance {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(length = 50)
     @NotNull
@@ -30,11 +26,9 @@ public class ServiceInstance {
     @NotNull
     private String serviceName;
 
-    @Column(length = 50)
-    @NotNull
-    private String foundationId;
-
-    @ManyToOne
-    @JoinColumn(name = "timeId")
-    private Time time;
+    public ServiceInstance(Long id, @NotNull String serviceGuidId, @NotNull String serviceName, @NotNull String foundationId, Time time) {
+        super(id, foundationId, time);
+        this.serviceGuidId = serviceGuidId;
+        this.serviceName = serviceName;
+    }
 }

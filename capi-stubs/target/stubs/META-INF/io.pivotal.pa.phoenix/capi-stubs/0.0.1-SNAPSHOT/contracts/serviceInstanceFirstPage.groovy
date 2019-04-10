@@ -13,22 +13,20 @@ org.springframework.cloud.contract.spec.Contract.make {
         body("""{
            "pagination": {
               "last": {
-                 "href" : "http://localhost:10001/v3/processes?page=2&per_page=2"
+                 "href" : "http://localhost:10001/v3/service_instances?page=2&per_page=2"
               },
               "next": {
-                  "href" :"http://localhost:10001/v3/processes?page=2&per_page=2"
+                  "href" :"http://localhost:10001/v3/service_instances?page=2&per_page=2"
                }
            },
            "resources" : [
              {
                  "guid": "abc123",
-                 "instances": 1,
-                 "disk_in_mb": 64
+                 "name": "redis"
              },
              {
                  "guid": "abc567",
-                 "instances": 3,
-                 "disk_in_mb": 64
+                 "name": "mysql"
              }
            ]
         }

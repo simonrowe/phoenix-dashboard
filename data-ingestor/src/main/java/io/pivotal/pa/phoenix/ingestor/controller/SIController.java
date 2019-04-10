@@ -1,7 +1,6 @@
 package io.pivotal.pa.phoenix.ingestor.controller;
 
 import io.pivotal.pa.phoenix.ingestor.service.SIService;
-import io.pivotal.pa.phoenix.model.ApplicationInstance;
 import io.pivotal.pa.phoenix.model.ServiceInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

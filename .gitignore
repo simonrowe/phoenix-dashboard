@@ -1,5 +1,6 @@
 HELP.md
-/target/
+target/
+/capi-stubs/target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -27,3 +28,13 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+capi-stubs/target/capi-stubs-0.0.1-SNAPSHOT-stubs.jar
+capi-stubs/target/capi-stubs-0.0.1-SNAPSHOT-stubs.jar
+capi-stubs/target/capi-stubs-0.0.1-SNAPSHOT.jar
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/contracts/serviceInstanceFirstPage.groovy
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/contracts/serviceInstanceSecondPage.groovy
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/mappings/processesFirstPage.json
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/mappings/processesSecondPage.json
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/mappings/serviceInstanceFirstPage.json
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/mappings/serviceInstanceSecondPage.json
+capi-stubs/target/stubs/META-INF/io.pivotal.pa.phoenix/capi-stubs/0.0.1-SNAPSHOT/mappings/uaaOAuthToken.json
