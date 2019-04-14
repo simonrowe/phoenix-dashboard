@@ -7,25 +7,22 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
-@Entity
-@Table(name = "aggregated_ai")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class AggregatedAI {
-
-    public AggregatedAI(Long count) {
-        this.aiCount = count.intValue();
-    }
-
+@MappedSuperclass
+public abstract class AbstractInstance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 50)
     @NotNull
-    private Integer aiCount;
+    private String foundationId;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "timeId")
     private Time time;
+
+
 }

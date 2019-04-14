@@ -1,5 +1,5 @@
 {
-  "id" : "b1636497-e2d0-4ef2-8ad2-7c33ae92a0cb",
+  "id" : "8ff4faa2-b2b1-4d83-9eef-1cef9fb9836d",
   "request" : {
     "url" : "/oauth/token",
     "method" : "POST",
@@ -20,5 +20,5 @@
     },
     "transformers" : [ "response-template" ]
   },
-  "uuid" : "b1636497-e2d0-4ef2-8ad2-7c33ae92a0cb"
+  "uuid" : "8ff4faa2-b2b1-4d83-9eef-1cef9fb9836d"
 }

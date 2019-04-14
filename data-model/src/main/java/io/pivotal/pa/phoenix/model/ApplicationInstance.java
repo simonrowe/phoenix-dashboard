@@ -15,25 +15,17 @@ import javax.validation.constraints.NotNull;
 })
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class ApplicationInstance {
+public class ApplicationInstance extends AbstractInstance{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @NotNull
+    private Integer instances;
     @Column(length = 50)
     @NotNull
     private String appGuidId;
 
-    @NotNull
-    private Integer instances;
-
-    @Column(length = 50)
-    @NotNull
-    private String foundationId;
-
-    @ManyToOne
-    @JoinColumn(name = "timeId")
-    private Time time;
+    public ApplicationInstance(Long id, @NotNull String appGuidId, @NotNull Integer instances, @NotNull String foundationId, Time time) {
+        super(id, foundationId, time);
+        this.instances = instances;
+        this.appGuidId = appGuidId;
+    }
 }

@@ -2,6 +2,7 @@ package io.pivotal.pa.phoenix.web.dao;
 
 import io.pivotal.pa.phoenix.model.AggregatedAI;
 import io.pivotal.pa.phoenix.model.Time;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,12 @@ public class AggregatedAIDaoTest {
 
     @Before
     public void before() {
+        aggregatedAiDao.deleteAll();
+        timeDao.deleteAll();
+    }
+
+    @After
+    public void after() {
         aggregatedAiDao.deleteAll();
         timeDao.deleteAll();
     }

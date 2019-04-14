@@ -1,5 +1,5 @@
 {
-  "id" : "1e55887b-f945-44d0-aec8-af81417afdf2",
+  "id" : "d34cc3f7-b488-43c2-adda-7445280a9ed2",
   "request" : {
     "url" : "/v3/service_instances?page=1&per_page=2",
     "method" : "GET",
@@ -11,11 +11,11 @@
   },
   "response" : {
     "status" : 200,
-    "body" : "{\"pagination\":{\"next\":{\"href\":\"http://localhost:10001/v3/processes?page=2&per_page=2\"},\"last\":{\"href\":\"http://localhost:10001/v3/processes?page=2&per_page=2\"}},\"resources\":[{\"instances\":1,\"disk_in_mb\":64,\"guid\":\"abc123\"},{\"instances\":3,\"disk_in_mb\":64,\"guid\":\"abc567\"}]}",
+    "body" : "{\"pagination\":{\"next\":{\"href\":\"http://localhost:10001/v3/service_instances?page=2&per_page=2\"},\"last\":{\"href\":\"http://localhost:10001/v3/service_instances?page=2&per_page=2\"}},\"resources\":[{\"name\":\"redis\",\"guid\":\"abc123\"},{\"name\":\"mysql\",\"guid\":\"abc567\"}]}",
     "headers" : {
       "Content-Type" : "application/json"
     },
     "transformers" : [ "response-template" ]
   },
-  "uuid" : "1e55887b-f945-44d0-aec8-af81417afdf2"
+  "uuid" : "d34cc3f7-b488-43c2-adda-7445280a9ed2"
 }

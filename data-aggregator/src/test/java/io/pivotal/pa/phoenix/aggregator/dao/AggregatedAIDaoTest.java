@@ -4,6 +4,7 @@ package io.pivotal.pa.phoenix.aggregator.dao;
 import io.pivotal.pa.phoenix.model.AggregatedAI;
 import io.pivotal.pa.phoenix.model.ApplicationInstance;
 import io.pivotal.pa.phoenix.model.Time;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +23,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class AggregatedAIDaoTest {
 
     @Autowired
@@ -32,8 +35,9 @@ public class AggregatedAIDaoTest {
     @Autowired
     private ApplicationInstanceDao applicationInstanceDao;
 
+    @After
     @Before
-    public void before() {
+    public void cleanup() {
         aggregatedAiDao.deleteAll();
         timeDao.deleteAll();
         applicationInstanceDao.deleteAll();

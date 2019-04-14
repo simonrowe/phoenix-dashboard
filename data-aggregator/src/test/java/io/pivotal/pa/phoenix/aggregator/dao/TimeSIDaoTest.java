@@ -1,7 +1,7 @@
 package io.pivotal.pa.phoenix.aggregator.dao;
 
 
-import io.pivotal.pa.phoenix.model.ApplicationInstance;
+import io.pivotal.pa.phoenix.model.ServiceInstance;
 import io.pivotal.pa.phoenix.model.Time;
 import org.junit.After;
 import org.junit.Before;
@@ -22,26 +22,26 @@ import static org.junit.Assert.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 
-public class TimeDaoTest {
+public class TimeSIDaoTest {
 
     @Autowired
-    private TimeDao timeDao;
+    private TimeSIDao timeSIDao;
 
     @Autowired
-    private ApplicationInstanceDao applicationInstanceDao;
+    private ServiceInstanceDao serviceInstanceDao;
 
     @Before
     @After
     public void before() {
-        applicationInstanceDao.deleteAll();
+        serviceInstanceDao.deleteAll();
     }
 
     @Test
     public void testInsertTime() {
         Time time = new Time(new Date());
-        Time saved = timeDao.save(time);
+        Time saved = timeSIDao.save(time);
         assertNotNull(saved);
-        Optional<Time> retrieved = timeDao.findById(saved.getId());
+        Optional<Time> retrieved = timeSIDao.findById(saved.getId());
         assertTrue(retrieved.isPresent());
         assertNotNull(retrieved.get().getId());
         assertNotNull(retrieved.get().getTime());
@@ -51,24 +51,24 @@ public class TimeDaoTest {
     public void testAssociateTimeWithApplicationInstances() {
         //set up the time record
         Time time = new Time(new Date());
-        Time saved = timeDao.save(time);
+        Time saved = timeSIDao.save(time);
         assertNotNull(saved);
-        Time retrieved = timeDao.findById(saved.getId()).get();
+        Time retrieved = timeSIDao.findById(saved.getId()).get();
 
-        //set up the AI records
-        List<ApplicationInstance> aisToPersist = Arrays.asList(
-                new ApplicationInstance(null, "abc123", 3, "foundation1", null),
-                new ApplicationInstance(null, "def123", 1, "foundation1", null),
-                new ApplicationInstance(null, "abc123", 5, "foundation2", null)
+        //set up the SI records
+        List<ServiceInstance> sisToPersist = Arrays.asList(
+                new ServiceInstance(null, "abc123", "rabbit", "foundation1", null),
+                new ServiceInstance(null, "def123", "redis", "foundation1", null),
+                new ServiceInstance(null, "abc123", "mysql", "foundation2", null)
         );
 
-        applicationInstanceDao.saveAll(aisToPersist);
+        serviceInstanceDao.saveAll(sisToPersist);
 
-        assertThat(timeDao.findAIsByTime(retrieved).size(), is(0));
+        assertThat(timeSIDao.findSIsByTime(retrieved).size(), is(0));
 
-        timeDao.associateTime(retrieved);
+        timeSIDao.associateTime(retrieved);
 
-        assertThat(timeDao.findAIsByTime(retrieved).size(), is(3));
+        assertThat(timeSIDao.findSIsByTime(retrieved).size(), is(3));
 
     }
 
